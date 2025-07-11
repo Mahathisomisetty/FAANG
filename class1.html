@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box shadow</title>
+    <style>
+        .items{
+            background-color: yellow;
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            margin: 200px;
+            box-shadow: 10px 10px 20px 5px grey;
+        }
+        button{
+            background-color: red;
+            padding: 10px;
+            margin: 100px;
+            width: 150px;
+            height: 50px;
+            color: white;
+            font-size: 20px;
+            border: 2px solid black;
+            transition: border-radius,background-color,color 30s ease-out;/* changes the hover time for border-radius and backgroundcolor*/
+        }
+        button:hover{
+            border-radius: 50px;
+            background-color: blue;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 200px;
+            transition: transform 10s ease-out;
+        }
+        .box:hover{
+           /* transform:translateY(10px) ;*/
+            transform: rotate(-80deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+    <p>Class 1  Lorem ipsum is a dummy text used to replace text in some areas just for the purpose of an example. It can be used in publishing and graphic design. It is used to demonstrate the graphics elements of a document, such as font, typography, and layout
+    </p>
+    </div>
+    <div class="button">
+        <button>Login</button>
+    </div>
+    <div class="box"></div>
+</body>
+</html>
