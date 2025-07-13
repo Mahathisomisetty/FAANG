@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Australia</title>
+  <style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: brown;
+      padding: 10px 20px;
+      border-radius: 25px;
+    }
+
+    nav h1 {
+      color: white;
+      margin: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color:brown;
+      border: 2px solid white;
+      border-radius: 15px;
+      padding: 15px;
+      width: 280px;
+      box-sizing: border-box;
+      text-align: center;
+      color:white
+    }
+    .card img {
+      width: 240px;
+      height: 250px;
+      border-radius: 10px;
+    }
+    .card p {
+      font-weight: bold;
+    }
+    .card:hover{ 
+      border-radius: 25px;
+      background-color:rgb(118, 44, 44);
+      box-shadow: 10px 8px 5px 5px grey;
+      transform: translate(0,20px);
+    }
+    .para{
+        text-align: center;
+        margin-top: 45px;
+    }
+    li:hover{
+        background-color: rgb(102, 8, 8);
+        border: 10px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <h1>Country</h1>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="india.html">India</a></li>
+        <li><a href="uk.html">UK</a></li>
+        <li><a href="us.html">US</a></li>
+        <li><a href="australia.html">Australia</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="cards">
+    <p class="para">The <span style="color: blue;">Australia</span> is the world's smallest continent and largest island, located in the Southern Hemisphere. It's known for its unique wildlife, including kangaroos, koalas, and platypuses. The country boasts diverse landscapes, from the arid Outback to stunning coastal regions and the Great Barrier Reef. Its major cities, like Sydney and Melbourne, are vibrant cultural hubs. Australia has a rich Indigenous history and a strong multicultural identity.</p>
+    <div class="card">
+      <img src="images/lotus.jpg" alt="bridge">
+      <p>Sydney Opera House at night, beautifully illuminated against a dark sky. The iconic shell-like structures, which make up its roof, are clearly visible and reflected in the water in front of it.There are lights visible along the base of the building, adding to its nighttime glow.The overall impression is one of grandeur and architectural beauty. </p>
+    </div>
+    <div class="card">
+      <img src="images/abridge.jpg" alt="bridge" />
+      <p>Sydney Harbour Bridge at night, one of Australia’s most iconic landmarks. Located in Sydney, New South Wales, this massive steel arch bridge spans Sydney Harbour, connecting the central business district with the North Shore.</p>
+    </div>
+    <div class="card">
+      <img src="images/ground.jpg" alt="lighthouse"/>
+      <p>scenic view of Sydney, Australia, showcasing a grassy foreground with a lone bench and a stunning backdrop of the Sydney Harbour Bridge and Sydney Opera House. The perspective emphasizes the city's iconic skyline, blending natural serenity with urban vibrance. </p>
+    </div>
+    <div class="card">
+      <img src="images/build.jpg" alt="house" />
+      <p>Flinders Street Station in Melbourne, Australia, a prominent landmark. The grand, yellow-brick building with its distinctive green dome and clock tower dominates the frame.
+
+      </p>
+    </div>
+  </div>
+</body>
+</html>
