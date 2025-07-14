@@ -7,9 +7,8 @@
   <style>
     .cards {
       display: flex;
-      flex-direction: row; /* vertical layout */
+      flex-direction: row; /* horizontal layout */
       gap: 20px; /* space between the cards */
-      background-color: chocolate;
       color: white;
       padding: 25px;
       margin: 15px;
@@ -19,25 +18,32 @@
       margin-top: 100px;
       
     }
-    div:hover{
+
+    /* Hover effect for individual cards only */
+    .cards > div:hover {
       background-color: chocolate;
       box-shadow: 3px 3px 5px 8px rgb(218, 152, 104);
     }
 
-     .cards > div {
-      background-color: rgba(255, 255, 255, 0.1);
+    .cards > div {
+      background-color: chocolate;
+      color: white;
       padding: 15px;
       border-radius: 8px;
-      border: 3px solid white;
+      width: 980px;
+    
     }
-    button{
+
+    button {
       padding: 7px;
-      margin-left: 15px;
+      margin-left: 25px;
       border-radius: 5px;
       background-color: chocolate;
+      
     }
-    button:hover{
-      border:2px solid white ;
+
+    button:hover {
+      border: 2px solid white;
     }
   </style>
 </head>
@@ -47,19 +53,33 @@
       <h2>HTML</h2>
       <p>Learn the basics of HTML.</p>
       <h5>Book price: 550/-</h5>
+      <ul>
+        <li>exercises</li>
+        <li>key</li>
+        <li>50+ projects</li>
+      </ul>
       <button>Buy now</button>
     </div>
     <div>
       <h2>CSS3</h2>
-      
       <p>Style your websites like a pro.</p>
       <h5>Book price: 660/-</h5>
+      <ul>
+        <li>exercises</li>
+        <li>key</li>
+        <li>60+ projects</li>
+      </ul>
       <button>Buy now</button>
     </div>
     <div>
-      <h2>JavaScript </h2>
+      <h2>JavaScript</h2>
       <p>Add interactivity to your pages.</p>
       <h5>Book price: 1050/-</h5>
+      <ul>
+        <li>exercises</li>
+        <li>key</li>
+        <li>150+ projects</li>
+      </ul>
       <button>Buy now</button>
     </div>
   </div>
