@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gp1</title>
+    <style>
+        .container{
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+        }
+        .item{
+            background-color: red;
+            margin: 10px;
+        }
+        .item1{
+            grid-template-columns: 100%;
+            grid-template-rows: 200px;
+            grid-column: 1/1;
+           
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item1">dumm1</div>
+        <div class="item">dummy2</div>
+        <div class="item">dummy3</div>
+        <div class="item">dummy4</div>
+        <div class="item">dummy5</div>
+        
+    </div>
+</body>
+</html>
