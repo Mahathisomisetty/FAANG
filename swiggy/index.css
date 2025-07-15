@@ -102,6 +102,11 @@ body{
         height: 300px;
         display: flex;
         margin-left: 140px;
+        
+    }
+    .locationimage{
+        width: 20px;
+        height: 20px;
     }
     
    
