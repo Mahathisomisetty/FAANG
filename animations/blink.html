@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blink</title>
+    <style>
+        .circle{
+            position: relative;
+            width: 50px;
+            margin: 100px;
+        }
+
+        .blink
+        {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 15px solid rgb(64, 48, 48);
+            background-color: white;
+            position:absolute;
+            animation:blink 1s infinite alternate ease-in-out  ;
+        }
+        @keyframes blink{
+            from{
+                transform: scale(0.1)
+            }
+            to{
+                transform: scale(1.5);
+            }
+        }
+            
+        
+    </style>
+
+</head>
+<body>
+    <div class="circle">
+        <div class="blink">
+
+        </div>
+    </div>
+    
+</body>
+</html>

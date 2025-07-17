@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bounceballs</title>
+    <style>
+        .container{
+            display: flex;
+            margin: 100px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 250px;
+            gap:20px;
+        }
+        .ball1{
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+            background-color: red;
+            animation: bounce 2s infinite;
+            animation-delay: 0.1s;
+            
+        }
+        .ball2{
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+            background-color: rgb(53, 148, 186);
+            animation: bounce 2s infinite;
+            animation-delay: 0.3s;
+            
+        }
+        .ball3{
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+            background-color: green;
+            animation: bounce 2s infinite ;
+            animation-delay: 0.6s;
+            
+        }
+        .ball4{
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+            background-color: yellow;
+            animation: bounce 2s infinite ;
+            animation-delay: 0.9s;
+        }
+        .ball5{
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+            background-color: orange;
+            animation: bounce 2s infinite ;
+            animation-delay: 1.2s;
+        }
+        @keyframes bounce{
+              0%,50%,100%{
+                transform: translateY(0);
+              }
+              25%{
+                transform: translateY(-90px);
+              }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="ball1"></div>
+    <div class="ball2"></div>
+    <div class="ball3"></div>
+    <div class="ball4"></div>
+    <div class="ball5"></div>
+    </div>
+    
+</body>
+</html>
