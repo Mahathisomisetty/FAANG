@@ -1,0 +1,44 @@
+// let factors=0
+// let number=13
+// for (let i=2;i<=Math.floor(number/2);i++){
+//     if(number%i==0){
+//         factors++;
+//     }
+// }
+// if(factors>0){
+//     console.log("non prime")
+// }
+// else{ console.log("prime")}
+//prime number method using squareroot
+let factor=0
+let num=3
+let number=Math.floor(Math.sqrt(num))
+for(let j=2;j<=num;j++){
+    if(number%j==0){
+        factor++;
+    }
+}
+if(factor>0){
+    console.log("not a prime")
+
+}else{
+    console.log("prime")
+}
+//prime using flag
+let number1=-100
+let flag=false
+if(number1<=1){
+    console.log("enter valid number")
+}
+else{
+for(let i=2;i<=Math.floor(Math.sqrt(number1));i++){
+    if(number1%i==0){
+        flag=true
+        break;
+    }
+}
+if(flag){
+    console.log("non prime")
+}
+else{console.log("prime")}
+}

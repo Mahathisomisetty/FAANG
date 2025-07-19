@@ -9,14 +9,12 @@ for( p=3;p<=9;p++)
 for(let i=1;i<=p;i++)
 {
     if(p%i==0){
-        factor++;
-        
+        factor++;    
     }
 }
 if(factor>2){
         console.log("non prime")
-        console.log(p); 
-         
+        console.log(p);     
     }
     else{
         console.log("prime")
@@ -24,7 +22,5 @@ if(factor>2){
         primesum=primesum+p
     }
     factor=0
-    
 }
-
 console.log(primesum)
