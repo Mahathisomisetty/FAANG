@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <p>lorem ipsum dolor sit amet consectetur adipisicing elit. </p> 
+    <p>lorem ipsum dolor sit amet consectetur adipisicing elit. </p> 
+   <p id="para2" >paragraph 2</p>
+   <p class="para3">paragraph 3</p>
+   <script>
+    let a=document.querySelectorAll("p");
+    for(let i=0;i<a.length;i++){
+        a[i].style.color="green";
+    }
+    document.querySelector("p").style.color="green";//it refers to the first p tag bcz it can select only one element in the page
+    document.querySelector("#para2").style.color="red";
+    document.querySelector(".para3").style.color="blue";
+    // document.querySelector("p").style.fontSize="20px";
+   </script>
+</body>
+</html>

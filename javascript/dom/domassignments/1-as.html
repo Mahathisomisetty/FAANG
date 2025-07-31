@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1"></p>
+    <h1>lavanya</h1>
+    <h1>mahathi</h1>
+    <h2 class="h6">update</h2>
+    <p class="p"></p>
+</body>
+<script>
+// document.getElementById("p1").innerText="Lavanya";
+// document.getElementById("p1").style.color="black";
+// document.getElementById("p1").style.fontWeight="bold";
+// document.getElementById("p1").style.backgroundColor="violet";
+// document.getElementsByTagName("h1")[0].innerText="S.Lavanya";
+// document.getElementsByTagName("h1")[1].innerHTML="<i>Sandhya</i>";
+// document.getElementsByTagName("h1")[1].innerText="<i>Sandhya</i>";
+// document.querySelector("h1").innerText = "Italic";
+let newPara = document.createElement("p");      
+newPara.innerText = "New Para";
+document.body.append(newPara);
+newPara.remove();
+</script>
+</html>

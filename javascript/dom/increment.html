@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <centre>
+        <p id="para"> 1</p>
+
+    <button id="btn" onclick="add()">ADD</button>
+    <button id="btn" onclick="sub()">sub</button>
+    <button id="btn" onclick="mul()">mul*2</button>
+    </centre>
+    <script>
+        let para=document.getElementById("para")
+        let btn=document.getElementById("btn")
+       
+        function add(){
+            let current_value=para.innerText;
+            para.innerText=parseInt(current_value)+1
+             
+            
+        }
+        function sub(){
+            let current_value=para.innerText;
+            if(current_value>0){
+            para.innerText=parseInt(current_value)-1
+            }
+            //  console.log(current_value)
+        }
+        function mul(){
+            let current_value=para.innerText;
+            para.innerText=parseInt(current_value)*2
+            //  console.log(current_value)
+        }
+    </script>
+</body>
+</html>

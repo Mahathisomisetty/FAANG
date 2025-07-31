@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="para">Hello</p>
+    <button id="button">Change</button>
+    <script>
+        document.getElementById("button").addEventListener("click",()=>{
+        document.getElementById("para").innerText="This is changed"
+        document.getElementById("para").style.color="Red"
+        }) //change the text and text color when the button is clicked using eventlistener.
+        //mouseover changes when the mouse is hovered on the element.
+        //mouseout changes when the mouse is taken out of the element.
+        //mousedown changes when the mouse is clicked on the element.
+        //mouseup changes when the mouse is released from the element.
+    </script>
+</body>
+</html>

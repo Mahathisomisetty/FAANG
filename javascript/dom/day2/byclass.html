@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque eligendi maxime non officiis iure ducimus soluta totam corporis minus, fugiat enim sapiente exercitationem quos consequuntur ad obcaecati a. Magnam, earum.</div>
+    <div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque eligendi maxime non officiis iure ducimus soluta totam corporis minus, fugiat enim sapiente exercitationem quos consequuntur ad obcaecati a. Magnam, earum.</div>
+    <div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque eligendi maxime non officiis iure ducimus soluta totam corporis minus, fugiat enim sapiente exercitationem quos consequuntur ad obcaecati a. Magnam, earum.</div>
+    <div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque eligendi maxime non officiis iure ducimus soluta totam corporis minus, fugiat enim sapiente exercitationem quos consequuntur ad obcaecati a. Magnam, earum.</div>
+    <h1 id="para">Sample text</h1>
+    <button id="btn">Click</button>
+    <script>
+        let a=document.getElementsByClassName("box");
+        for(let i=0;i<a.length;i++){
+            if(i%2==0){
+                a[i].style.color="green";
+            }else{
+                a[i].style.color="red";
+            }
+        }
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Item cost</th>
+            <th>item count</th>
+            <th>Total</th>
+        </tr>
+        <td><p id="cost">100</p></td>
+    <td style="display: flex;">
+    <button onclick="add()">+1</button>
+    <button onclick="sub()">-1</button>
+    </td>  
+<td><p id=cost>100</p></td>  </table>
+<script>
+   let cost = document.getElementById("cost").innerText;
+document.getElementById("add").addEventListener("click", () =>{
+let current_count = document.getElementById("count").innerText;
+document.getElementById("count").innerText = ++current_count;
+let current_total = document. getElementById("total").innerText;
+document.getElementById("total").innerText =parseInt(current_total)+ parseInt(cost);
+<) but
+document.getElementById("sub").addEventlistener("click", () =>(
+let current_count = document.getElementById("count”).innerText;
+if (current_count > 0)f
+document.getElementById("count").innerText =--current_count;let current_total = document.getElementById("total").innerText;document.getElementById("total").innerText =
+parseInt(current_total)-parseInt(cost)；
+lelsef
+alert("Item count cannot be negative")
+</script>
+
+</body>
+</html>
