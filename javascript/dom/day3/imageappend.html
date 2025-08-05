@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Gallery</h1>
+    <input type="text" name="" id="input">
+    <button id="btn">Addimage</button>
+    <div id="mygallery"></div>
+    <script>
+        let a=document.getElementById("input");
+        let button=document.getElementById("btn");
+        let gallery=document.getElementById("mygallery");
+        button.addEventListener("click",function(){
+        let newItem=document.createElement("img");
+        newItem.src=a.value;
+        if(a.value==""){
+            alert("field is empty");
+        }
+        newItem.style.width="200px"
+        newItem.style.height="200px"
+        gallery.appendChild(newItem);
+        a.value="";
+        });
+    </script>
+</body>
+</html>

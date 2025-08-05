@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,th{
+            border: 2px solid black;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Table</h1>
+    <table>
+        <tr >
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        <tr> 
+            <td>1</td>
+            <td>John</td>
+        </tr>
+         <tr> 
+            <td>2</td>
+            <td>Jack</td>
+        </tr>
+        <tr>
+            <td id="id"></td>
+            <td id="name"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+   <button id="btn">Add</button>
+</body>
+<script>
+    let id=document.getElementById("id");
+    let name=document.getElementById("name");
+    let btn=document.getElementById("btn");
+    btn.addEventListener("click",function(){
+    //    document.getElementById("id").innerText="3";
+    //    document.getElementById("name").innerText="sam";
+      let newrow=document.createElement("table");
+      id.append(newrows);
+
+
+    })
+    
+</script>
+</html>

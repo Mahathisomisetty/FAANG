@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="para"></p>
+    <button id="btn" onclick="button1('first')">button1</button>
+    <button id="btn" onclick="button1('second')" >button2</button>
+    <button id="btn" onclick="button1('third')">button3</button>
+
+</body>
+<script>
+    function button1(x){
+        document.getElementById("para").innerText="this is "+x+" para"
+    }
+    // function button2(){
+    //     document.getElementById("para").innerText="this is second para"
+    // }
+    // function button3(){
+    //     document.getElementById("para").innerText="this is third para"
+    // }
+</script>
+</html>

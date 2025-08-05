@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="addButton">Add Item</button>
+<ul id="itemList"></ul>
+<template id="itemTemplate">
+  <li class="item">This is a new item</li>
+</template>
+</body>
+<script>// Getting references to DOM elements we'll use
+const addButton = document.getElementById('addButton'); // "Add" button
+const itemList = document.getElementById('itemList'); // List to which we'll add items
+const itemTemplate = document.getElementById('itemTemplate'); // List item template
+
+// Adding an event listener to the "Add" button
+addButton.addEventListener('click', () => {
+  // Clone the contents of the list item template
+  const newItem = itemTemplate.content.cloneNode(true); // true means deep cloning (including all child elements)
+
+  // Add new item to the list
+  itemList.appendChild(newItem);
+});</script>
+</html>

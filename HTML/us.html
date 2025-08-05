@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>US</title>
+  <style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: brown;
+      padding: 10px 20px;
+      border-radius: 25px;
+    }
+
+    nav h1 {
+      color: white;
+      margin: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color:brown;
+      border: 2px solid white;
+      border-radius: 15px;
+      padding: 15px;
+      width: 280px;
+      box-sizing: border-box;
+      text-align: center;
+      color:white
+    }
+    .card img {
+      width: 240px;
+      height: 250px;
+      border-radius: 10px;
+    }
+    .card p {
+      font-weight: bold;
+    }
+    .card:hover{ 
+      border-radius: 25px;
+      background-color:rgb(118, 44, 44);
+      box-shadow: 10px 8px 5px 5px grey;
+      transform: translate(0,20px);
+    }
+    .para{
+        text-align: center;
+        margin-top: 45px;
+    }
+    li:hover{
+        background-color: rgb(102, 8, 8);
+        border: 10px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <h1>Country</h1>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="india.html">India</a></li>
+        <li><a href="uk.html">UK</a></li>
+        <li><a href="us.html">US</a></li>
+        <li><a href="australia.html">Australia</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="cards">
+    <p class="para">The <span style="color: blue;">United States</span> is a vast and diverse country known for its iconic landmarks, cultural influence, and innovation. From the Statue of Liberty in New York to the Golden Gate Bridge in San Francisco, it is home to world-famous symbols of freedom and progress. Its cities blend historic charm with modern skylines, as seen in the Painted Ladies of San Francisco. The country’s landscapes range from towering mountains and lush forests to bustling urban centers. The U.S. stands as a global leader in technology, entertainment, and democracy. </p>
+    <div class="card">
+      <img src="images/statue.jpg" alt="bridge">
+      <p> The Statue of Liberty, one of the most iconic symbols of freedom and democracy in the world. Located on Liberty Island in New York Harbor, USA, the statue was a gift from France to the United States, dedicated on October 28, 1886.</p>
+    </div>
+    <div class="card">
+      <img src="images/usbridge.jpg" alt="clocktower" />
+      <p>The Golden Gate Bridge, one of the most iconic engineering marvels in the world, located in San Francisco, California, USA..</p>
+    </div>
+    <div class="card">
+      <img src="images/ushouse.jpg" alt="lighthouse"/>
+      <p>The Painted Ladies of San Francisco, California, USA, with the city's modern skyline in the background — a beautiful blend of historic charm and urban development.</p>
+    </div>
+    <div class="card">
+      <img src="images/hotel.jpg" alt="house" />
+      <p>he interior of Chester Cathedral, a magnificent Gothic-style church located in united states of america.
+
+      </p>
+    </div>
+  </div>
+</body>
+</html>

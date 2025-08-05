@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="list">
+    </ul>
+    
+    <button id="additem">Add item</button>
+    <button id="removeitem">remove item</button>
+    
+</body>
+<script>
+    let count=0
+    let list=document.getElementById("list");
+    let add=document.getElementById("additem");
+    let remove=document.getElementById("removeitem");
+    add.addEventListener("click",function(){
+        count+=1;
+        let newItem=document.createElement("li");
+        newItem.innerText="New item"+`${count}`;
+        list.appendChild(newItem);
+    });
+    remove.addEventListener("click",function(){
+        count-=1
+        if(list.lastElementChild){
+            list.removeChild(list.lastElementChild)
+        }else{
+            alert("no elements left");
+        }
+    })
+</script>
+</html>

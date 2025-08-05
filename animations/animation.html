@@ -11,14 +11,15 @@
             background-color: violet;
             border-radius: 100px;
             margin-left: 50px;
-            animation: square 1s infinite alternate ease-in-out;
+            animation: name duration timing-function delay iteration-count direction fill-mode;
+            /* animation: square 1s infinite alternate ease-in-out; */
         }
         @keyframes square{
             from{
                 transform: translateX(0px) ;
             }
             to{
-                transform: translateY(350px) rotate(-180deg);  
+                transform: translateY(350px) ;  
             }
         }
     </style>

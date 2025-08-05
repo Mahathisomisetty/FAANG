@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UK</title>
+  <style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: brown;
+      padding: 10px 20px;
+      border-radius: 25px;
+    }
+
+    nav h1 {
+      color: white;
+      margin: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color:brown;
+      border: 2px solid white;
+      border-radius: 15px;
+      padding: 15px;
+      width: 280px;
+      box-sizing: border-box;
+      text-align: center;
+      color:white
+    }
+    .card img {
+      width: 240px;
+      height: 250px;
+      border-radius: 10px;
+    }
+    .card p {
+      font-weight: bold;
+    }
+    .card:hover{ 
+      border-radius: 25px;
+      background-color:rgb(118, 44, 44);
+      box-shadow: 10px 8px 5px 5px grey;
+      transform: translate(0,20px);
+    }
+    .para{
+        text-align: center;
+        margin-top: 45px;
+    }
+    li:hover{
+        background-color: rgb(102, 8, 8);
+        border: 10px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <h1>Country</h1>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="india.html">India</a></li>
+        <li><a href="uk.html">UK</a></li>
+        <li><a href="us.html">US</a></li>
+        <li><a href="australia.html">Australia</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="cards">
+    <p class="para"><span style="color: blue;">United Kingdom</span> is home to some of the most iconic landmarks in the world, showcasing its rich history and architectural brilliance. Tower Bridge in London stands majestically over the River Thames, especially stunning when illuminated at night. Nearby, the famous Elizabeth Tower—commonly known as Big Ben—continues to be a symbol of British heritage with its striking clock face. On the northeast coast, St. Mary’s Lighthouse offers a serene maritime view, perched on a tidal island surrounded by rocky shores. In Scotland, Glasgow Cathedral stands as a magnificent example of Gothic architecture and medieval craftsmanship. Together, these landmarks reflect the cultural depth and timeless beauty of the UK. </p>
+    <div class="card">
+      <img src="images/bridge.jpg" alt="bridge">
+      <p> The Tower Bridge in London, an iconic symbol of the city. Captured at night, the bridge is beautifully illuminated with lights that highlight its Gothic-style towers and suspension elements, reflecting gracefully on the River Thames below.</p>
+    </div>
+    <div class="card">
+      <img src="images/clocktower.jpg" alt="clocktower" />
+      <p>The Elizabeth Tower, famously known as Big Ben, one of the most iconic landmarks of London and the United Kingdom.</p>
+    </div>
+    <div class="card">
+      <img src="images/lighthouse.jpg" alt="lighthouse"/>
+      <p> St. Mary’s Lighthouse, located on St. Mary’s Island near Whitley Bay on the northeastern coast of England. united kingdom</p>
+    </div>
+    <div class="card">
+      <img src="images/house.jpg" alt="house" />
+      <p>Glasgow Cathedral, also known as St. Mungo's Cathedral, located in Glasgow, Scotland. It stands as one of the finest examples of medieval architecture in the country and is rich in historical and cultural significance.United Kingdom</p>
+    </div>
+  </div>
+</body>
+</html>

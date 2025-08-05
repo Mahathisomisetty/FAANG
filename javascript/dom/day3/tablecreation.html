@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,th{
+            border-collapse: collapse;
+            border: 2px solid black;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Table</h1>
+    <input type="number" placeholder="enter id" id="idcol">
+    <input type="text" placeholder="enter name" id="namecol">
+    <br>
+    <br>
+    <br>
+    <table>
+        <tr >
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        
+    </table>
+    <br>
+    <br>
+   <button id="btn">Add</button>
+</body>
+<script>
+    let btn = document.getElementById("btn");
+    let table = document.querySelector("table");
+    btn.addEventListener("click", function () {
+        let newRow = document.createElement("tr");
+        let id = document.createElement("td");
+        id.innerText = idcol.value
+        let name = document.createElement("td");
+        name.innerText = namecol.value
+        newRow.appendChild(id);
+        newRow.appendChild(name);
+        table.appendChild(newRow);
+    });
+</script>
+</html>

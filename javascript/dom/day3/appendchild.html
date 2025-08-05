@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol id="list">
+        <li>item 1</li>
+        <li>item 2</li>
+    </ol>
+    <button id="additem">Add item</button>
+    <button id="removeitem">remove item</button>
+    
+</body>
+<script>
+    let list=document.getElementById("list");
+    let add=document.getElementById("additem");
+    let remove=document.getElementById("removeitem");
+    add.addEventListener("click",function(){
+        let newItem=document.createElement("li");
+        newItem.innerText="New item";
+        list.appendChild(newItem);
+    });
+    remove.addEventListener("click",function(){
+        if(list.lastElementChild){
+            list.removeChild(list.lastElementChild)
+        }else{
+            alert("no elements left");
+        }
+    })
+</script>
+</html>

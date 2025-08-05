@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pricing Card</title>
+  <style>
+    .cards {
+      display: flex;
+      flex-direction: row; /* horizontal layout */
+      gap: 20px; /* space between the cards */
+      color: white;
+      padding: 25px;
+      margin: 15px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin-left: 30%;
+      margin-top: 100px;
+      
+    }
+
+    
+    .cards > div:hover {
+      background-color: chocolate;
+      box-shadow: 3px 3px 5px 8px rgb(218, 152, 104);
+    }
+
+    .cards > div {
+      background-color: chocolate;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      width: 980px;
+    
+    }
+
+    button {
+      padding: 7px;
+      margin-left: 25px;
+      border-radius: 5px;
+      background-color: chocolate;
+      
+    }
+
+    button:hover {
+      border: 2px solid white;
+    }
+  </style>
+</head>
+<body>
+  <div class="cards">
+    <div>
+      <h2>HTML</h2>
+      <p>Learn the basics of HTML.</p>
+      <h5>Book price: 550/-</h5>
+      <ul>
+        <li>exercises</li>
+        <li>key</li>
+        <li>50+ projects</li>
+      </ul>
+      <button>Buy now</button>
+    </div>
+    <div>
+      <h2>CSS3</h2>
+      <p>Style your websites like a pro.</p>
+      <h5>Book price: 660/-</h5>
+      <ul>
+        <li>exercises</li>
+        <li>key</li>
+        <li>60+ projects</li>
+      </ul>
+      <button>Buy now</button>
+    </div>
+    <div>
+      <h2>JavaScript</h2>
+      <p>Add interactivity to your pages.</p>
+      <h5>Book price: 1050/-</h5>
+      <ul>
+        <li>exercises</li>
+        <li>key</li>
+        <li>150+ projects</li>
+      </ul>
+      <button>Buy now</button>
+    </div>
+  </div>
+</body>
+</html>

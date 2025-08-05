@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Type comment">
+    <button id="btn">Post Comment</button>
+    <div id="comments"></div> 
+</body>
+<script>
+    let input=document.getElementById("input");
+    let button = document.getElementById("btn");
+    let comments = document.getElementById("comments");
+    button.addEventListener("click", function() {
+        // let inputValue = document.getElementById("input").value;
+        // input=document.getElementById("input").value;
+        let newItem = document.createElement("div");
+        newItem.innerText = input.value;
+        comments.appendChild(newItem);
+        input.value="";//after clicking th the button text inside the input will be empty.
+    
+    });
+</script>
+</html>
