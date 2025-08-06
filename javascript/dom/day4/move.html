@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin-left: 300px;
+        }
+        .parent{
+            position: relative;
+            width: 600px;
+            height: 300px;
+            background-color: aqua;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+             
+        }
+        .child{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            align-items: center;
+            justify-content: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="parent">
+         <div id="child" class="child"></div>
+    </div>
+    
+   <br>
+            <button id="left">left</button>
+            <button id="right">Right</button>
+            <button id="down">Down</button>
+            <button id="up">Up</button>
+            <button id="reset">Reset</button>
+            <button id="rright">Rotate right</button>
+            <button id="rleft">Rotate Left</button>
+            <button id="rup">Rotateup</button>
+            <button id="rdown">Rotatedown</button>
+         
+   <script>
+    let left=document.getElementById("left");
+    let right=document.getElementById("right");
+    let down=document.getElementById("down");
+    let up=document.getElementById("up");
+    let reset=document.getElementById("reset");
+    let rright=document.getElementById("rright")
+    // let child=document.getElementById("child")
+    left.addEventListener("click",function(){
+        child.style.transform="translateX(-150px)";
+        child.style.transition="1s";  
+       
+     })
+    right.addEventListener("click",function(){
+        child.style.transform="translateX(150px)";  
+        child.style.transition="1s"; 
+     })
+     up.addEventListener("click",function(){
+        child.style.transform="translateY(-100px)"; 
+        child.style.transition="1s";  
+     })
+     down.addEventListener("click",function(){
+        child.style.transform="translatey(100px)";
+        child.style.transition="1s";   
+     })
+     reset.addEventListener("click",function(){
+        child.style.transform="translate(0px)";
+        child.style.transition="1s"; 
+     })
+     rright.addEventListener("click",function(){
+        child.style.transform="rotateX(180deg)";
+        child.style.transition="1s";  
+       
+     })
+   </script>
+</body>
+</html>

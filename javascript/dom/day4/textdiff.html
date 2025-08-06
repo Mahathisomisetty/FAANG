@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="one">'7'</div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+    <script>
+        let one=document.getElementById("one");
+        let two=document.getElementById("two");
+        let three=document.getElementById("three");
+        let four=document.getElementById("four");
+        one.innerText="Iam faang"
+        two.textContent="Iam faang <span style='display: none;'>hidden</span>";
+        three.innerHTML="<b>Iam faang<b>";
+        four.innerHTML="<h3>iam<span style='color:blue;'> Faang</span></h3>"
+            let text=four.innerText;
+            let text1=four.textContent;
+            let txt2=four.innerHTML;
+            console.log(text);
+            console.log(text1);
+            console.log(txt2);//shows what it is considering
+            
+            
+
+    </script>
+</body>
+</html>

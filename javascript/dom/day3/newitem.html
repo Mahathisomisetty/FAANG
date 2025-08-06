@@ -8,6 +8,7 @@
 <body>
     
     <ul id="list">
+        <!-- <li>item1</li> -->
     </ul>
     
     <button id="additem">Add item</button>
@@ -20,15 +21,16 @@
     let add=document.getElementById("additem");
     let remove=document.getElementById("removeitem");
     add.addEventListener("click",function(){
-        count+=1;
+         count+=1;
+        
         let newItem=document.createElement("li");
-        newItem.innerText="New item"+`${count}`;
+        newItem.innerText="New item"+count;
         list.appendChild(newItem);
     });
     remove.addEventListener("click",function(){
-        count-=1
         if(list.lastElementChild){
             list.removeChild(list.lastElementChild)
+            count--;
         }else{
             alert("no elements left");
         }

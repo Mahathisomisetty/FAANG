@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Add input</button>
+    <div id="inputs"></div>
+    <script>
+        let btn=document.getElementById("btn");
+        let inputs=document.getElementById("inputs");
+        btn.addEventListener("click",function(){
+            let input=document.createElement("input");
+            let br=document.createElement("br");
+            input.type="Password";
+            inputs.appendChild(input);
+            inputs.appendChild(br);
+        })
+    </script>
+</body>
+</html>
