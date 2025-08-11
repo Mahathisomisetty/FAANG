@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Restaurant Menu</title>
     <style>
         * {
             margin: 0;
@@ -51,55 +51,53 @@
             border-radius: 5px;
         }
 
-       
-        .main {
-            display: flex;
-            padding: 20px;
+        /* Cards layout - 4 per row */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            align-items: flex-start;
-        }
-       
-        .bodyimage {
-            width: 65%;
-            height: auto;
-            border-radius: 10px;
+            padding: 20px;
         }
 
-        
-        .login-box {
-            background: white;
-            border-radius: 10px;
-            padding: 50px;
-            width: 35%;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-            height: 450px;
-            padding-top: 124px;
+        .card {
+            height: 350px;
+            background-color: whitesmoke;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        .login-box h2 {
-            margin-bottom: 15px;
-        }
-
-        .login-box input {
+        .card img {
             width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .login-box button {
-            background-color: black;
+        /* Overlay content on image */
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.6);
             color: white;
             padding: 10px;
-            border: none;
-            width: 100%;
-            border-radius: 5px;
-            font-size: 16px;
+            text-align: center;
         }
 
-        .login-box button:hover {
-            background-color: #444;
+        .addcart {
+            background-color: red;
+            border: none;
+            width: 100px;
+            padding: 8px;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .addcart:hover {
+            background-color: darkred;
         }
     </style>
 </head>
@@ -119,19 +117,44 @@
         </ul>
     </nav>
 
-  
-    <div class="main">
-        <img class="bodyimage" src="background.jpg" alt="Body image">
-        <div class="login-box">
-            <h2>Login</h2>
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            
-            <button>Login</button>
-            <p>Want to create Account?<span style="padding-left: 50px;"><a href="register.html" >Create Account</a></span></p>
-
+    <!-- Menu Section -->
+    <section id="menu">
+        <h1 style="text-align:center; margin: 20px 0;">Menu Section</h1>
+        <div class="cards">
+            <div class="card">
+                <img src="bg.jpg" alt="French Fries">
+                <div class="card-content">
+                    <h3>French Fries</h3>
+                    <p>Price: &#8377; 200</p>
+                    <button class="addcart">Add to cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="bg.jpg" alt="Paneer Tadka">
+                <div class="card-content">
+                    <h3>Paneer Tadka</h3>
+                    <p>Price: &#8377; 200</p>
+                    <button class="addcart">Add to cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="bg.jpg" alt="Burger">
+                <div class="card-content">
+                    <h3>Burger</h3>
+                    <p>Price: &#8377; 150</p>
+                    <button class="addcart">Add to cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="bg.jpg" alt="Pizza">
+                <div class="card-content">
+                    <h3>Pizza</h3>
+                    <p>Price: &#8377; 250</p>
+                    <button class="addcart">Add to cart</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
 </body>
 </html>

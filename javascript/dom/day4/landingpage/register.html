@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
     <style>
         * {
             margin: 0;
             box-sizing: border-box;
         }
 
-        /* Navbar */
         .nav {
             background-color: black;
             display: flex;
@@ -51,7 +50,7 @@
             border-radius: 5px;
         }
 
-       
+        /* Main Layout */
         .main {
             display: flex;
             padding: 20px;
@@ -65,22 +64,21 @@
             border-radius: 10px;
         }
 
-        
-        .login-box {
+        /* Register Box */
+        .register-box {
             background: white;
             border-radius: 10px;
             padding: 50px;
             width: 35%;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-            height: 450px;
-            padding-top: 124px;
+            height: auto;
         }
 
-        .login-box h2 {
+        .register-box h2 {
             margin-bottom: 15px;
         }
 
-        .login-box input {
+        .register-box input {
             width: 100%;
             padding: 10px;
             margin: 8px 0;
@@ -88,8 +86,8 @@
             border: 1px solid #ccc;
         }
 
-        .login-box button {
-            background-color: black;
+        .register-box button {
+            background-color: red;
             color: white;
             padding: 10px;
             border: none;
@@ -98,20 +96,19 @@
             font-size: 16px;
         }
 
-        .login-box button:hover {
+        .register-box button:hover {
             background-color: #444;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="nav">
         <div class="logo">
             <img src="logo.jpg" alt="Logo">
         </div>
         <ul class="menu">
-            <li><a href="#Home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#aboutus">About Us</a></li>
             <li><a href="#contactus">Contact Us</a></li>
             <li><a href="#menu">Menu</a></li>
@@ -119,19 +116,67 @@
         </ul>
     </nav>
 
-  
+   
     <div class="main">
         <img class="bodyimage" src="background.jpg" alt="Body image">
-        <div class="login-box">
-            <h2>Login</h2>
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            
-            <button>Register</button>
-            <p>already having Account?<span style="padding-left: 50px;"><a href="login.html" >Login</a></span></p>
-
+        <div class="register-box">
+            <center><h2>Register</h2></center>
+            <form id="registerForm">
+                <input type="text" id="fullname" placeholder="Full Name">
+                <input type="email" id="email" placeholder="Email">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password">
+                
+                <button type="submit">Register</button>
+                <p>Already have an account? 
+                    <span style="padding-left: 50px;">
+                        <a href="login.html">Login</a>
+                    </span>
+                </p>
+            </form>
         </div>
     </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let fullname = document.getElementById("fullname").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+            if (fullname.length < 3) {
+                alert("Full Name must be at least 3 characters.");
+                return;
+            }
+
+            // if (!/^\S+@\S+\.\S+$/.test(email)) {
+            //     alert("Please enter a valid email address.");
+            //     return;
+            // }
+
+            if (username.length < 3) {
+                alert("Username must be at least 3 characters.");
+                return;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters.");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            alert("Registration successful! ✅");
+            this.submit();
+        });
+    </script>
 
 </body>
 </html>
