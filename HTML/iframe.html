@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iframe Content</title>
+</head>
+<body>
+  <h3>Inside Iframe</h3>
+  
+  <!-- allow-forms -->
+  <form action="https://httpbin.org/post" method="post" target="_blank">
+    <input type="text" name="test" placeholder="Type something">
+    <button type="submit">Submit Form</button>
+  </form>
+
+  <!-- allow-modals -->
+  <button onclick="alert('This is a modal alert box!')">Show Modal</button>
+
+  <!-- allow-pointer-lock -->
+  <button onclick="requestPointerLock()">Lock Pointer</button>
+
+  <!-- allow-popups -->
+  <button onclick="window.open('https://example.com')">Open Popup</button>
+
+  <!-- allow-orientation-lock (requires mobile) -->
+  <button onclick="screen.orientation.lock('portrait')">Lock Orientation</button>
+
+  <!-- allow-top-navigation -->
+  <button onclick="window.top.location.href = 'https://youtube.com'">Navigate Top</button>
+
+  <script>
+    function requestPointerLock() {
+      document.body.requestPointerLock =
+        document.body.requestPointerLock ||
+        document.body.mozRequestPointerLock ||
+        document.body.webkitRequestPointerLock;
+      document.body.requestPointerLock();
+    }
+  </script>
+</body>
+</html>
