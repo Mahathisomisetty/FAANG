@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todo  list</h1>
+    <input type="text" id="task" placeholder="enter task">
+    <button id="btn">Add Task</button>
+    <ol id="taskList"></ol>
+    <script>
+        let task=document.getElementById("task");
+        let btn=document.getElementById("btn");
+        let taskList=document.getElementById("taskList");
+        window.onload=()=>{
+            let availableTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+            availableTasks.forEach(element =>{
+                loadTask(element);
+            });
+        }
+        const loadTask =(task)=>{
+            let newTask =document.createElement("li");
+            let span=document.createElement("span");
+            if(task.completd){
+                span.className="completed";
+            }
+            span.innerText=task.text;
+        }
+        btn.addEventListener("click",()=>{
+            let newTask=document.createElement("li");
+            let span=document.createElement("span");
+            span.innerText=task.value;
+        let delbtn=document.createElement("button");
+        delbtn.innerText="Delete";
+        delbtn.addEventListener("click",()=>{
+            newTask.remove();
+        })
+        let completebtn=document.createElement("button");
+        completebtn.innerText="Completed";
+        completebtn.addEventListener("click",()=>{
+            toggletask(task);
+        })
+        newTask.appendChild(span);
+        newTask.appendChild(completebtn);
+        newTask.appendChild(delbtn);
+        taskList.appendChild(newTask);
+        })
+
+       let taskobj = { "text": task.value, "completed": false };
+    let availableTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    availableTasks.push(taskobj);
+    localStorage.setItem("tasks", JSON.stringify(availableTasks));
+
+    const removetask=(taskText)=>{
+        let availableTasks=JSON.parse(localStorage.getItem("tasks"));
+        availableTasks=availableTasks.filter(x=>x.text !== taskText);
+        localStorage.setItem("tasks",JSON.stringify(availableTasks))
+    }
+    const togglestatus =(taskText)=>{
+        let availableTasks=JSON.parse(localStorage.getItem("tasks"));
+        availableTasks=availableTasks.map(x=>{
+            if(x.text === taskText){
+                x.completed =!x.completd;
+            }
+            return x;
+        })
+        localStorage.setItem("tasks",json.stringify(availableTasks));
+        taskList=textContetnt=""
+        let at = JSON.parse(localStorage.getItem("tasks"));
+        at.forEach(element => {
+            loadTask(x)
+        });
+    }
+    </script>
+</body>
+</html>

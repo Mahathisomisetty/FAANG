@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetching Example</h1>
+    <h2>setup:<span id="setup"></span></h2>
+    <h3>Punchline:<span id="punchline"></span></h3>
+    <button id="btn">generate joke</button>
+    <script>
+        // fetch("https://official-joke-api.appspot.com/random_joke") //to fetch the api link
+        // .then(response => response.json()) //storing the result in json format manually
+        // .then(result =>{
+        //     console.log(result.setup); //print what we want in multiples in api
+        //     console.log(result.punchline)
+        // })
+        let setup=document.querySelector("#setup");
+        let punchline=document.querySelector("#punchline");
+        let btn=document.querySelector("#btn");
+        btn.addEventListener("click", () =>{
+         fetch("https://official-joke-api.appspot.com/random_joke") //to fetch the api link
+        .then(response => response.json()) //storing the result in json format manually
+        .then(result =>{
+            setup.innerHTML=result.setup;
+            punchline.innerHTML=result.punchline;
+        })
+        });
+    </script>
+</body>
+</html>

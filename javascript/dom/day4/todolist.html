@@ -3,31 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDO List</title>
+    <title>Document</title>
 </head>
 <body>
-    <input type="text" id="task" placeholder="enter task">
+    <input type="text" name="" id="task" placeholder="Enter task">
     <button id="btn">Add task</button>
-    <ol id="tasks"></ol>
+    <ol id="taskList"></ol>
     <script>
+        //creating reference variables
         let task=document.getElementById("task");
-        let btn=document.getElementById("btn")
-        let tasks=document.getElementById("tasks");
-        btn.addEventListener("click",function(){
-             if(task.value.trim()==""){
-                return;
-            }
-            let newTask=document.createElement("li");
-            newTask.innerText=task.value;
-            let button=document.createElement("button");
-            button.innerText="Delete"
+        let btn = document.getElementById("btn");
+        let taskList=document.getElementById("taskList");
+
+        //To retrive and display tasks in local storage
+        window.onload=function(){
+            let availableTasks=JSON.parse(localStorage.getItem("tasks") ||"[]");
+            availableTasks.forEach(x => {
+                displayTasks(x);
+            });
+        }
+
+        //To display tasks on page load
+        function displayTasks(task){
+            let newTask = document.createElement("li");
+            newTask.innerText = task;
+
+            let button = document.createElement("button");
+            button.innerText="Delete";
             button.addEventListener("click",function(){
-                newTask.remove();
+                newTask.remove();               //To remove task from DOM
+                removeTask(task);
             })
             newTask.appendChild(button);
-            tasks.appendChild(newTask);
+            taskList.appendChild(newTask)
+        }
+
+        //Adding task to DOM as well as localStorage
+        btn.addEventListener("click",function(){
+            if(task.value.trim()==""){
+                return
+            }
+            let y=task.value;
+            let newTask = document.createElement("li");
+            newTask.innerText=y;
+
+            let button = document.createElement("button");
+            button.innerText="Delete";
+            button.addEventListener("click",function(){
+                newTask.remove();                           //TO remove task from DOM
+                removeTask(y);
+            })
+
+            newTask.appendChild(button);
+
+            taskList.appendChild(newTask);
+
+            let availableTasks=JSON.parse(localStorage.getItem("tasks") || "[]");   //to check for any available tasks
+            availableTasks.push(task.value);
+            localStorage.setItem("tasks",JSON.stringify(availableTasks));
             task.value="";
         })
+
+        //To remove task local storage
+        function removeTask(task){
+            let availableTasks = JSON.parse(localStorage.getItem("tasks"));
+            availableTasks=availableTasks.filter(x=>x !== task);
+            localStorage.setItem("tasks",JSON.stringify(availableTasks));
+        }
     </script>
 </body>
 </html>
+
+<!-- 1.AddTask-Adding task to dom,adding task to localStorage
+2.DeleteTask-Delete task from dom,delete task from local storage -->

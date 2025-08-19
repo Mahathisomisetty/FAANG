@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Menu</title>
+    <title>Restaurant Landing Page</title>
     <style>
         * {
             margin: 0;
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fafafa;
         }
 
         /* Navbar */
@@ -35,8 +40,6 @@
             list-style: none;
             display: flex;
             gap: 30px;
-            margin: 0;
-            padding: 0;
         }
 
         .menu a {
@@ -44,6 +47,7 @@
             font-size: 18px;
             color: white;
             padding: 10px 15px;
+            transition: 0.3s;
         }
 
         .menu a:hover {
@@ -51,54 +55,153 @@
             border-radius: 5px;
         }
 
-        /* Cards layout - 4 per row */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: url('bg.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
             padding: 20px;
         }
 
-        .card {
-            height: 350px;
-            background-color: whitesmoke;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        .hero h1 {
+            font-size: 50px;
+            text-shadow: 2px 2px 10px black;
         }
 
-        .card img {
-            width: 100%;
+        .hero p {
+            font-size: 20px;
+            margin: 15px 0;
+            text-shadow: 1px 1px 8px black;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background: red;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: darkred;
+        }
+
+        /* About Section */
+        .about {
+            padding: 50px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .about h2 {
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 50px 20px;
+            background: #fff;
+        }
+
+        .menu-section h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            background: none;
+            border: 2px solid red;
+            color: red;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .tab.active,
+        .tab:hover {
+            background: red;
+            color: white;
+        }
+
+        .menu-category {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .menu-item img {
+            width: 120px;
             height: 100%;
             object-fit: cover;
         }
 
-        /* Overlay content on image */
-        .card-content {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: rgba(0,0,0,0.6);
+        .menu-info {
+            padding: 15px;
+            flex: 1;
+        }
+
+        .menu-info h3 {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .menu-info p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: black;
             color: white;
-            padding: 10px;
+            padding: 50px 20px;
             text-align: center;
         }
 
-        .addcart {
-            background-color: red;
-            border: none;
-            width: 100px;
-            padding: 8px;
-            border-radius: 25px;
-            color: white;
-            cursor: pointer;
-            margin-top: 5px;
+        .contact h2 {
+            margin-bottom: 20px;
         }
 
-        .addcart:hover {
-            background-color: darkred;
+        .contact p {
+            margin: 10px 0;
         }
+
+       
+
     </style>
 </head>
 <body>
@@ -111,50 +214,155 @@
         <ul class="menu">
             <li><a href="#Home">Home</a></li>
             <li><a href="#aboutus">About Us</a></li>
-            <li><a href="#contactus">Contact Us</a></li>
             <li><a href="#menu">Menu</a></li>
+            <li><a href="#contactus">Contact Us</a></li>
             <li><a href="login.html">Login</a></li>
         </ul>
     </nav>
 
-    <!-- Menu Section -->
-    <section id="menu">
-        <h1 style="text-align:center; margin: 20px 0;">Menu Section</h1>
-        <div class="cards">
-            <div class="card">
+    <!-- Hero -->
+    <section class="hero" id="Home">
+        <div>
+            <h1>Welcome to Food Heaven</h1>
+            <p>Delicious food, cozy atmosphere, unforgettable taste</p>
+            <button onclick="document.querySelector('#menu').scrollIntoView({behavior: 'smooth'})">Explore Menu</button>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="about" id="aboutus">
+        <h2>About Us</h2>
+        <p>At our restaurant, we blend flavors, tradition, and passion to bring you an unforgettable dining experience. 
+        Our chefs use fresh, locally-sourced ingredients to craft dishes that delight both your palate and your heart. 
+        Whether you're here for a quick lunch or a lavish dinner, we promise satisfaction in every bite.</p>
+    </section>
+
+    <!-- Menu -->
+    <section class="menu-section" id="menu">
+        <h1>Our Menu</h1>
+
+        <!-- Category Tabs -->
+        <div class="menu-tabs">
+            <button class="tab active" onclick="showCategory('starters', event)">Starters</button>
+            <button class="tab" onclick="showCategory('maincourse', event)">Main Course</button>
+            <button class="tab" onclick="showCategory('desserts', event)">Desserts</button>
+            <button class="tab" onclick="showCategory('beverages', event)">Beverages</button>
+        </div>
+
+        <!-- Starters -->
+        <div class="menu-category starters">
+            <div class="menu-item">
                 <img src="bg.jpg" alt="French Fries">
-                <div class="card-content">
-                    <h3>French Fries</h3>
-                    <p>Price: &#8377; 200</p>
-                    <button class="addcart">Add to cart</button>
+                <div class="menu-info">
+                    <h3>French Fries <span>₹200</span></h3>
+                    <p>Crispy golden fries served with ketchup.</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="bg.jpg" alt="Paneer Tadka">
-                <div class="card-content">
-                    <h3>Paneer Tadka</h3>
-                    <p>Price: &#8377; 200</p>
-                    <button class="addcart">Add to cart</button>
+            <div class="menu-item">
+                <img src="bg.jpg" alt="Paneer Tikka">
+                <div class="menu-info">
+                    <h3>Paneer Tikka <span>₹250</span></h3>
+                    <p>Char-grilled paneer cubes marinated in spices.</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="bg.jpg" alt="Burger">
-                <div class="card-content">
-                    <h3>Burger</h3>
-                    <p>Price: &#8377; 150</p>
-                    <button class="addcart">Add to cart</button>
+        </div>
+
+        <!-- Main Course -->
+        <div class="menu-category maincourse" style="display:none;">
+            <div class="menu-item">
+                <img src="bg.jpg" alt="Paneer Butter Masala">
+                <div class="menu-info">
+                    <h3>Paneer Butter Masala <span>₹350</span></h3>
+                    <p>Creamy tomato-based curry with tender paneer cubes.</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="bg.jpg" alt="Pizza">
-                <div class="card-content">
-                    <h3>Pizza</h3>
-                    <p>Price: &#8377; 250</p>
-                    <button class="addcart">Add to cart</button>
+            <div class="menu-item">
+                <img src="bg.jpg" alt="Veg Biryani">
+                <div class="menu-info">
+                    <h3>Veg Biryani <span>₹300</span></h3>
+                    <p>Fragrant basmati rice cooked with vegetables and spices.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desserts -->
+        <div class="menu-category desserts" style="display:none;">
+            <div class="menu-item">
+                <img src="bg.jpg" alt="Gulab Jamun">
+                <div class="menu-info">
+                    <h3>Gulab Jamun <span>₹120</span></h3>
+                    <p>Soft milk dumplings soaked in sugar syrup.</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="bg.jpg" alt="Ice Cream">
+                <div class="menu-info">
+                    <h3>Ice Cream <span>₹150</span></h3>
+                    <p>Choice of vanilla, chocolate, or strawberry.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beverages -->
+        <div class="menu-category beverages" style="display:none;">
+            <div class="menu-item">
+                <img src="bg.jpg" alt="Lassi">
+                <div class="menu-info">
+                    <h3>Lassi <span>₹100</span></h3>
+                    <p>Refreshing yogurt drink, sweet or salted.</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="bg.jpg" alt="Cold Coffee">
+                <div class="menu-info">
+                    <h3>Cold Coffee <span>₹120</span></h3>
+                    <p>Chilled coffee topped with whipped cream.</p>
                 </div>
             </div>
         </div>
     </section>
+    <section class="reserve">
+        <div>
+            <center>
+            <h3>Reservations</h3>
+            <h1>Book a Table</h1>
+             </center>
+            <select>
+                <option>Select persons</option>
+                <option>1 person</option>
+                 <option>2 persons</option>
+                  <option>4 persons</option>
+                   <option>more than 5 people</option>
+            </select>
+           <input type="date" placeholder="Enter date">
+           <select>
+            <option>select time slot</option>
+            <option value="">01:00 pm</option>
+            <option value="">02:00 pm</option>
+            <option value="">03:00 pm</option>
+            <option value="">07:00 pm</option>
+            <option value="">08:00 pm</option>
+            <option value="">09:00 pm</option>
+            <option>10:00pm</option>
+           </select>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section class="contact" id="contactus">
+        <h2>Contact Us</h2>
+        <p>📍 123 Food Street, Your City, India</p>
+        <p>📞 +91 9876543210</p>
+        <p>✉️ info@restaurant.com</p>
+    </section>
+
+    <script>
+        function showCategory(category, event) {
+            document.querySelectorAll('.menu-category').forEach(cat => cat.style.display = 'none');
+            document.querySelector(`.${category}`).style.display = 'grid';
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>

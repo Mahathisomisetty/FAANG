@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Country Info</h1>
+    <div>Message:<span id="content"></span></div>
+    <div ><span id="status"></span></div>
+    <script>
+        fetch("https://restcountries.com/v3.1/all")
+        .then(res=>res.json())
+        .then(result=>{
+            // console.log(result.message);
+            // console.log(result.status)
+            con.innerHTML=result.message;
+        status.innerHTML=`Status:  ${result.status}`;
+        })
+        let con=document.querySelector("#content");
+        let status=document.getElementById("status");
+        
+
+    </script>
+</body>
+</html>

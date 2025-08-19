@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers API Trivia</title>
+</head>
+<body>
+    <h1>Random Number Trivia</h1>
+    <p id="trivia"></p>
+    <button id="newTrivia">Get New Trivia</button>
+
+    <script>
+        let btn = document.addEventListener("click",()=>{
+            fetch("http://numbersapi.com/random/trivia")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("trivia").innerHTML= data;
+                })
+               
+        })
+    </script>
+</body>
+</html>

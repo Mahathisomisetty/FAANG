@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+        #movies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .movie-card {
+            border: 2px solid black;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .movie-card img {
+            max-width: 100%;
+            object-fit: cover;
+            height: auto;
+        }
+        .gen1,.gen2{
+            display: inline-flex;
+            background-color: grey;
+            border: none;
+            padding: 3px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Movies</h1></center>
+    <div id="movies"></div>
+    <script>
+        let div = document.getElementById("movies");
+
+        fetch("https://moviesapi.ir/api/v1/movies")
+            .then((res) => res.json())
+            .then((result) => {
+                 
+                result.data.forEach(element => {
+                    display(element);
+                });
+            });
+
+        function display(movie) {  
+            let card = document.createElement("div");
+            card.classList.add("movie-card");
+            card.innerHTML = `
+                <img src="${movie.poster}">
+                <div><b> ${movie.title}</b></div>
+                <div> ⭐${movie.imdb_rating}</div>
+                <div> ${movie.year}</div>
+                <div class="gen1"> ${movie.genres[0]}</div>
+                <div class="gen2"> ${movie.genres[1]}</div>
+
+            `;
+            div.appendChild(card);
+        }
+    </script>
+</body>
+</html>
