@@ -61,14 +61,26 @@
   </section>
 
   <section id="login">
-    <h1>Login</h1>
-    <div>
-        <input type="text" placeholder="User name" id="input">
-        <input type="password" id="password">
-        <button>Submit</button>
-        
-    </div>
+   <center><h2>Login</h2></center> 
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                
+                <button type="submit">Login</button>
+                <p>Create Account? 
+                    <span style="padding-left: 50px;">
+                        <a href="register.html">Register</a>
+                    </span>
+                </p>
+            </form>
   </section>
+      <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+      <div class="modal-content" id="modalDetails">
+        <!-- Dynamic content will be injected here -->
+      </div>
+    </div>
+
 
   <script>
     // --- Navbar Injection ---
@@ -170,7 +182,16 @@
       });
 
       totalDiv.innerHTML = "Total: $" + total.toFixed(2);
+      
+      let payBtn = document.createElement("button");
+      payBtn.textContent = "Proceed to pay";
+      payBtn.classList.add("buy-now");
+      payBtn.onclick = () => {
+        alert("Proceeding to payment!");
+      };
+      totalDiv.appendChild(payBtn);
     }
+    
 
     function removeItem(index) {
         alert("Do you want to remove from cart");
@@ -190,6 +211,70 @@
     function hideNotification() {
       document.getElementById("notification").style.display = "none";
     }
+    function display(product) {
+  let card = document.createElement("div");
+  card.classList.add("product-card");
+  card.innerHTML = `
+    <img src="${product.image}" alt="${product.title}">
+    <h3>${product.title}</h3>
+    <p><strong>Brand:</strong> ${product.brand}</p>
+    <p><strong>Color:</strong> ${product.color}</p>
+    <p><strong>Model:</strong> ${product.model}</p>
+    <p class="price">$${product.price}</p>
+    <p>${product.description.substring(0, 60)}...</p>
+    <div class="button-group">
+      <button class="add-to-cart">Add to Cart</button>
+      <button class="buy-now">Buy Now</button>
+    </div>
+  `;
+
+  // Open popup 
+  card.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("add-to-cart") &&
+        !e.target.classList.contains("buy-now")) {
+      openModal(product);
+    }
+  });
+
+  card.querySelector(".add-to-cart").addEventListener("click", () => {
+    addToCart(product);
+  });
+
+  card.querySelector(".buy-now").addEventListener("click", () => {
+    showNotification("⚡ Buying " + product.title + " ...");
+  });
+
+  electronics.appendChild(card);
+}
+
+// --- Modal Popup ---
+function openModal(product) {
+  let modal = document.getElementById("productModal");
+  let modalContent = document.getElementById("modalDetails");
+  modalContent.innerHTML = `
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img src="${product.image}" alt="${product.title}">
+    <h2>${product.title}</h2>
+    <p><strong>Brand:</strong> ${product.brand}</p>
+    <p><strong>Color:</strong> ${product.color}</p>
+    <p><strong>Model:</strong> ${product.model}</p>
+    <p class="price">$${product.price}</p>
+    <p>${product.description}</p>
+  `;
+  modal.style.display = "block";
+}
+function closeModal() {
+  document.getElementById("productModal").style.display = "none";
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  let modal = document.getElementById("productModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
   </script>
 </body>
 </html>
