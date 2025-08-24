@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroMart</title>
+  <link rel="stylesheet" href="index.css"
+</head>
+<body>
+
+  <!-- Navbar (JS will inject here) -->
+  <nav id="navbar"></nav>
+
+  <!-- Notification -->
+  <div id="notification">
+    <span id="notif-text"></span>
+    <button class="close-btn" onclick="hideNotification()">×</button>
+  </div>
+
+  <!-- Sections -->
+  <section id="aboutus-section" style="display:none;">
+  <h1 style="text-align:center; margin:20px 0;">About Us</h1>
+  <div id="aboutus" style="max-width:800px; margin:auto; line-height:1.6; padding:20px; background:#fff; border-radius:10px; box-shadow:0 3px 6px rgba(0,0,0,0.1);">
+    <p>
+      Welcome to <strong>ElectroMart</strong>, your one-stop destination for all things electronics. 
+      We are passionate about delivering top-quality gadgets and accessories at prices that won’t break the bank.
+    </p>
+    <p>
+      Our catalog includes everything from <strong>smartphones, laptops, and tablets</strong> 
+      to <strong>headphones, smartwatches, and home appliances</strong>. Whether you are a tech enthusiast 
+      or just looking for reliable electronics for daily use, ElectroMart has you covered.
+    </p>
+    <p>
+      <strong>Why choose us?</strong>
+      <ul>
+        <li>✔ Wide variety of products</li>
+        <li>✔ Affordable pricing</li>
+        <li>✔ Fast and secure delivery</li>
+        <li>✔ 24/7 customer support</li>
+      </ul>
+    </p>
+    <p>
+      At ElectroMart, we believe technology should be accessible to everyone. 
+      Our mission is to bring innovation and convenience to your doorstep.
+    </p>
+    <p style="text-align:center; font-weight:bold; color:#ff9800;">
+      Contact us: support@electromart.com | ☎ +91 98765 43210
+    </p>
+  </div>
+</section>
+
+  <section id="electronics-section">
+    <h1 style="text-align:center; margin:20px 0;">Products</h1>
+    <div id="electronics"></div>
+  </section>
+
+  <section id="cart-section" style="display:none;">
+    <h1 style="text-align:center; margin:20px 0;">Your Cart</h1>
+    <div id="cart"></div>
+    <div class="total" id="totalPrice"></div>
+  </section>
+
+  <section id="login">
+    <h1>Login</h1>
+    <div>
+        <input type="text" placeholder="User name" id="input">
+        <input type="password" id="password">
+        <button>Submit</button>
+        
+    </div>
+  </section>
+
+  <script>
+    // --- Navbar Injection ---
+    function renderNavbar() {
+      document.getElementById("navbar").innerHTML = `
+        <ol>
+          <li class="logo">ElectroMart</li>
+          <li><a onclick="showSection('electronics')">Home</a></li>
+          <li><a onclick="showSection('aboutus')">About Us</a></li>
+          <li><a onclick="showSection('cart')">Cart (<span id="cart-count">0</span>)</a></li>
+          <li><a onclick="showSection('login')">Login</a></li>
+        </ol>
+      `;
+    }
+    renderNavbar();
+
+    // --- Sections Toggle ---
+    function showSection(section) {
+      document.getElementById("aboutus-section").style.display = section === "aboutus"?"block":"none";
+      document.getElementById("electronics-section").style.display = section === "electronics" ? "block" : "none";
+      document.getElementById("cart-section").style.display = section === "cart" ? "block" : "none";
+      if(section === "cart") renderCart();
+      document.getElementById("login").style.display = section === "login" ? "block":"none";
+
+    }
+
+    // --- Fetch & Display Products ---
+    let electronics = document.getElementById("electronics");
+
+    fetch("https://fakestoreapi.in/api/products?page=2")
+      .then((response) => response.json())
+      .then((result) => {
+        result.products.forEach(product => {
+          display(product);
+        });
+        updateCartCount();
+      });
+
+    function display(product) {
+      let card = document.createElement("div");
+      card.classList.add("product-card");
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.title}">
+        <h3>${product.title}</h3>
+        <p><strong>Brand:</strong> ${product.brand}</p>
+        <p><strong>Color:</strong> ${product.color}</p>
+        <p><strong>Model:</strong> ${product.model}</p>
+        <p class="price">$${product.price}</p>
+        <p>${product.description.substring(0, 60)}...</p>
+        <button class="add-to-cart">Add to Cart</button>
+         
+        <button class="buy-now">Buy now</button>
+      `;
+      card.querySelector(".add-to-cart").addEventListener("click", () => {
+        addToCart(product);
+      });
+      electronics.appendChild(card);
+    }
+
+    // --- Cart Functions ---
+    function addToCart(product) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let exists = cart.some(item => item.id === product.id);
+      if (!exists) cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      showNotification("✅ " + product.title + " added to cart!");
+    }
+
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      document.getElementById("cart-count").textContent = cart.length;
+    }
+
+    function renderCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let cartDiv = document.getElementById("cart");
+      let totalDiv = document.getElementById("totalPrice");
+      cartDiv.innerHTML = "";
+      let total = 0;
+
+      if(cart.length === 0) {
+        cartDiv.innerHTML = "<p>Your cart is empty</p>";
+        totalDiv.innerHTML = "";
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        total += parseFloat(item.price);
+        let div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.title}">
+          <h3>${item.title}</h3>
+          <p>$${item.price}</p>
+          <button onclick="removeItem(${index})">Remove</button>
+        `;
+        cartDiv.appendChild(div);
+      });
+
+      totalDiv.innerHTML = "Total: $" + total.toFixed(2);
+    }
+
+    function removeItem(index) {
+        alert("Do you want to remove from cart");
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+      updateCartCount();
+    }
+
+    // --- Notification ---
+    function showNotification(message) {
+      let notif = document.getElementById("notification");
+      document.getElementById("notif-text").textContent = message;
+      notif.style.display = "flex";
+    }
+    function hideNotification() {
+      document.getElementById("notification").style.display = "none";
+    }
+  </script>
+</body>
+</html>
